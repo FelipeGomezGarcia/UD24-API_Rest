@@ -38,13 +38,10 @@ public class Trabajador {
 	/**
 	 * @param id
 	 * @param nombre
-	 * @param apellido
-	 * @param direccion
-	 * @param dni
-	 * @param fecha
+	 * @param empleo
+	 * @param salario
 	 */
 	public Trabajador(Long id, String nombre, String empleo, int salario) {
-		//super();
 		this.id = id;
 		this.nombre = nombre;
 		this.empleo = empleo;
@@ -84,31 +81,31 @@ public class Trabajador {
 	}
 
 	/**
-	 * @return the apellido
+	 * @return the empleo
 	 */
 	public String getEmpleo() {
 		return empleo;
 	}
 
 	/**
-	 * @param empleo the apellido to set
+	 * @param empleo the empleo to set
 	 */
 	public void setEmpleo(String empleo) {
 		this.empleo = empleo;
 	}
 
 	/**
-	 * @return the dni
+	 * @return the salario
 	 */
 	public int getSalario() {
 		return salario;
 	}
 
 	/**
-	 * @param dni the dni to set
+	 * @param salario the salario to set
 	 */
-	public void setSalario(int dni) {
-		this.salario = dni;
+	public void setSalario(int salario) {
+		this.salario = salario;
 	}
 
 	/**
@@ -134,24 +131,15 @@ public class Trabajador {
 	}
 	
 	public void asignarSalario() {
+		boolean encontrado = false;
 		
-		/*
-		 * String programador = Empleos.programador.toString(); String electricista =
-		 * Empleos.electricista.toString(); String fontanero =
-		 * Empleos.fontanero.toString(); String paleta = Empleos.paleta.toString();
-		 * 
-		 * if (this.empleo.equals(programador)) { setSalario(2400); }else if
-		 * (this.empleo.equals(electricista)) { setSalario(1900); }else if
-		 * (this.empleo.equals(fontanero)) { setSalario(1800); }else if
-		 * (this.empleo.equals(paleta)) { setSalario(1600); }
-		 */
-		
-		for(Empleos e : Empleos.values()) {
-			System.out.println(e.name());
+		Empleos[] empleos = Empleos.values();
+		int count = 0;
+		while(count<empleos.length && !encontrado) {
 			
-			if (e.name().equals(this.empleo.toLowerCase())) {
+			if (empleos[count].name().equals(this.empleo.toLowerCase())) {
 				setEmpleo(empleo.toLowerCase());
-				switch (e) {
+				switch (empleos[count]) {
 				case programador:
 					setSalario(2400);
 					break;
@@ -165,14 +153,16 @@ public class Trabajador {
 					setSalario(1600);
 					break;
 				default:
-					setEmpleo("Desempledo");
-					setSalario(0);
 					break;
 				}
+				encontrado = true;
 			}
-			System.out.println(empleo);
-			
-			
+			count++;
+		}
+		
+		if (!encontrado) {
+			setEmpleo("Desempleado");
+			setSalario(0);
 		}
 		
 	}

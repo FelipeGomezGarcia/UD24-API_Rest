@@ -41,9 +41,7 @@ public class TrabajadorServiceImpl implements ITrabajadorService{
 	public void eliminarTrabajador(Long id) {
 		
 		iTrabajadorDAO.deleteById(id);
-		
 	}
-
 
 	@Override
 	public List<Trabajador> listarTrabajadorEmpleo(String empleo) {
