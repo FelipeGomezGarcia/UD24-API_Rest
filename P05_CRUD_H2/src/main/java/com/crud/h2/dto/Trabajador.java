@@ -1,6 +1,7 @@
 package com.crud.h2.dto;
 
 import java.util.Date;
+import java.util.Iterator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,12 +43,12 @@ public class Trabajador {
 	 * @param dni
 	 * @param fecha
 	 */
-	public Trabajador(Long id, String nombre, String apellido, int dni) {
+	public Trabajador(Long id, String nombre, String empleo, int salario) {
 		//super();
 		this.id = id;
 		this.nombre = nombre;
-		this.empleo = apellido;
-		this.salario = dni;
+		this.empleo = empleo;
+		this.salario = salario;
 		asignarSalario();
 	}
 
@@ -134,19 +135,44 @@ public class Trabajador {
 	
 	public void asignarSalario() {
 		
-		String programador = Empleos.programador.toString();
-		String electricista = Empleos.electricista.toString();
-		String fontanero = Empleos.fontanero.toString();
-		String paleta = Empleos.paleta.toString();
+		/*
+		 * String programador = Empleos.programador.toString(); String electricista =
+		 * Empleos.electricista.toString(); String fontanero =
+		 * Empleos.fontanero.toString(); String paleta = Empleos.paleta.toString();
+		 * 
+		 * if (this.empleo.equals(programador)) { setSalario(2400); }else if
+		 * (this.empleo.equals(electricista)) { setSalario(1900); }else if
+		 * (this.empleo.equals(fontanero)) { setSalario(1800); }else if
+		 * (this.empleo.equals(paleta)) { setSalario(1600); }
+		 */
 		
-		if (this.empleo.equals(programador)) {
-			setSalario(2400);
-		}else if (this.empleo.equals(electricista)) {
-			setSalario(1900);
-		}else if (this.empleo.equals(fontanero)) {
-			setSalario(1800);
-		}else if (this.empleo.equals(paleta)) {
-			setSalario(1600);
+		for(Empleos e : Empleos.values()) {
+			System.out.println(e.name());
+			
+			if (e.name().equals(this.empleo.toLowerCase())) {
+				setEmpleo(empleo);
+				switch (e) {
+				case programador:
+					setSalario(2400);
+					break;
+				case electricista:
+					setSalario(1900);
+					break;
+				case fontanero:
+					setSalario(1800);
+					break;
+				case paleta:
+					setSalario(1600);
+					break;
+				default:
+					setEmpleo("Desempledo");
+					setSalario(0);
+					break;
+				}
+			}
+			System.out.println(empleo);
+			
+			
 		}
 		
 	}
