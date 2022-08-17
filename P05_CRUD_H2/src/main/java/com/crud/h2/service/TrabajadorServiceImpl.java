@@ -14,12 +14,12 @@ public class TrabajadorServiceImpl implements ITrabajadorService{
 	
 	//Utilizamos los metodos de la interface IClienteDAO, es como si instaciaramos.
 	@Autowired
-	ITrabajadorDAO iClienteDAO;
+	ITrabajadorDAO iTrabajadorDAO;
 	
 	@Override
 	public List<Trabajador> listarTrabajadores() {
 		
-		return iClienteDAO.findAll();
+		return iTrabajadorDAO.findAll();
 	}
 
 	@Override
@@ -28,27 +28,27 @@ public class TrabajadorServiceImpl implements ITrabajadorService{
 		Date fecha = new Date(milisecond);
 		trabajador.setFecha(fecha);
 		trabajador.asignarSalario();
-		return iClienteDAO.save(trabajador);
+		return iTrabajadorDAO.save(trabajador);
 	}
 
 	@Override
 	public Trabajador trabajadorXID(Long id) {
 		
-		return iClienteDAO.findById(id).get();
+		return iTrabajadorDAO.findById(id).get();
 	}
 
 	@Override
 	public void eliminarTrabajador(Long id) {
 		
-		iClienteDAO.deleteById(id);
+		iTrabajadorDAO.deleteById(id);
 		
 	}
 
 
 	@Override
-	public List<Trabajador> listarTrabajadorNomnbre(String nombre) {
+	public List<Trabajador> listarTrabajadorEmpleo(String empleo) {
 		
-		return iClienteDAO.findByNombre(nombre);
+		return iTrabajadorDAO.findByEmpleo(empleo);
 	}
 
 }

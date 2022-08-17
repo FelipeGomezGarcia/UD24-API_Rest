@@ -13,13 +13,13 @@ public interface ITrabajadorService {
 	//Metodos del CRUD
 	public List<Trabajador> listarTrabajadores(); //Listar All 
 	
-	public Trabajador guardarTrabajador(Trabajador trabajador);	//Guarda un cliente CREATE
+	public Trabajador guardarTrabajador(Trabajador trabajador);	//Guarda un Trabajador CREATE
 	
-	public Trabajador trabajadorXID(Long id); //Leer datos de un cliente READ
+	public Trabajador trabajadorXID(Long id); //Leer datos de un Trabajadores READ
 	
-	public List<Trabajador> listarTrabajadorNomnbre(String nombre);//Listar Clientes por campo nombre
+	public List<Trabajador> listarTrabajadorEmpleo(String empleo);//Listar Trabajadores por campo empleo
 	
-	public void eliminarTrabajador(Long id);// Elimina el cliente DELETE
+	public void eliminarTrabajador(Long id);// Elimina el Trabajador DELETE
 	
 	
 }

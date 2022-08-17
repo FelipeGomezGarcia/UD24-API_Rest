@@ -11,7 +11,7 @@ import com.crud.h2.dto.Trabajador;
  */
 public interface ITrabajadorDAO extends JpaRepository<Trabajador, Long>{
 	
-	//Listar clientes or campo nombre
-	public List<Trabajador> findByNombre(String nombre);
+	//Listar trabajadores por campo empleo
+	public List<Trabajador> findByEmpleo(String empleo);
 	
 }

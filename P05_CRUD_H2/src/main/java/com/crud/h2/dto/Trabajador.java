@@ -150,7 +150,7 @@ public class Trabajador {
 			System.out.println(e.name());
 			
 			if (e.name().equals(this.empleo.toLowerCase())) {
-				setEmpleo(empleo);
+				setEmpleo(empleo.toLowerCase());
 				switch (e) {
 				case programador:
 					setSalario(2400);

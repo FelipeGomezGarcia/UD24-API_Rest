@@ -28,9 +28,9 @@ public class TrabajadorController {
 	}
 	
 	//listar Clientes por campo nombre
-	@GetMapping("/trabajadores/nombre/{nombre}")
-	public List<Trabajador> listarTrabajadorNombre(@PathVariable(name="nombre") String nombre) {
-	    return clienteServideImpl.listarTrabajadorNomnbre(nombre);
+	@GetMapping("/trabajadores/empleo/{empleo}")
+	public List<Trabajador> listarTrabajadorNombre(@PathVariable(name="empleo") String empleo) {
+	    return clienteServideImpl.listarTrabajadorEmpleo(empleo);
 	}
 	
 	
