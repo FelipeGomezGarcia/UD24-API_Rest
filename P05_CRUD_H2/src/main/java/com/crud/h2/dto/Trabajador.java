@@ -1,7 +1,6 @@
 package com.crud.h2.dto;
 
 import java.util.Date;
-import java.util.Iterator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
